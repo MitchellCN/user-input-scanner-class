@@ -91,7 +91,7 @@ Scanner inputMenuServ = new Scanner(System.in);
          */
         // todo: Invoke the MenuService's promptForWeight() method.
 
-        System.out.println( Double promptForWeight);
+ //       System.out.println( Double promptForWeight);
 
 
 
@@ -108,11 +108,11 @@ Scanner inputMenuServ = new Scanner(System.in);
          */
         // todo: Invoke the MenuService's promptForFromUnit() method.
 
-        System.out.println(promptForFromUnit);
+//        System.out.println(promptForFromUnit);
 
         // todo: Invoke the MenuService's promptForToUnit() method.
 
-        System.out.println(promptForToUnit);
+//        System.out.println(promptForToUnit);
 
 
 
@@ -126,7 +126,7 @@ Scanner inputMenuServ = new Scanner(System.in);
          */
         // todo: Invoke the ConversionService's convert() method.
 
-        ConversionService.convert(weight, from, to);
+//        ConversionService.convert(weight, from, to);
 
 
         /*
@@ -136,7 +136,7 @@ Scanner inputMenuServ = new Scanner(System.in);
             and end the program.
          */
         //todo: Print the answer using the MenuService's printAnswer() method
-System.out.println(printAnswer);
+//System.out.println(printAnswer);
 
 
     }
