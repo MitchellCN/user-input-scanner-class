@@ -39,7 +39,7 @@ public class ConversionService {
      * @return A ArrayList of lowercase Strings containing valid units. All underscores are replaced with spaces.
      */
     // todo: create listUnits() method
-    public static ArrayList<String> listUnits() {
+    public ArrayList<String> listUnits() {
 
       //get arraylist make arraylist
     ArrayList<String> units = new ArrayList<String>();
@@ -90,12 +90,12 @@ public class ConversionService {
          * @return the converted weight
          */
         // todo: create convert() method
-        public static double convert(double weight, Weight from, Weight to){
+        public double convert(double weight, Weight from, Weight to){
 
-            weight = from.getGrams() *  weight;
-            weight = weight / to.getGrams();
+            double amount = from.getGrams() *  weight;
+            double conversion = amount / to.getGrams();
 
-            return weight;
+            return conversion;
         }
 
     }

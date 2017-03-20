@@ -1,5 +1,7 @@
 package com.theironyard;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -63,15 +65,15 @@ public class Main {
 Scanner inputScanner = new Scanner(System.in);
         // todo: Configure the Scanner instance to use a newline (\n) character as its delimiter
 
-String name = inputScanner.nextLine();
+inputScanner.useDelimiter("\n");
 
         // todo: Create a new instance of the ConversionService
 
-Scanner inputConServ = new Scanner(System.in);
+ ConversionService inputConServ = new ConversionService();
 
         // todo: Create a new instance of the MenuService. Pass the Scanner instance you created earlier into the MenuService's constructor
 
-Scanner inputMenuServ = new Scanner(System.in);
+MenuService inputMenuServ = new MenuService(inputScanner);
 
         /*
             Now that we have our objects configured, we can start to use them.
@@ -91,7 +93,7 @@ Scanner inputMenuServ = new Scanner(System.in);
          */
         // todo: Invoke the MenuService's promptForWeight() method.
 
- //       System.out.println( Double promptForWeight);
+        double newWeight = inputMenuServ.promptForWeight();
 
 
 
@@ -108,11 +110,11 @@ Scanner inputMenuServ = new Scanner(System.in);
          */
         // todo: Invoke the MenuService's promptForFromUnit() method.
 
-//        System.out.println(promptForFromUnit);
+        Weight fromUnit = inputMenuServ.promptForFromUnit(inputConServ.listUnits());
 
         // todo: Invoke the MenuService's promptForToUnit() method.
 
-//        System.out.println(promptForToUnit);
+       Weight toUnit = inputMenuServ.promptForToUnit(inputConServ.listUnits());
 
 
 
@@ -126,7 +128,7 @@ Scanner inputMenuServ = new Scanner(System.in);
          */
         // todo: Invoke the ConversionService's convert() method.
 
-//        ConversionService.convert(weight, from, to);
+      double convertValue = inputConServ.convert(newWeight, fromUnit, toUnit);
 
 
         /*
@@ -136,7 +138,7 @@ Scanner inputMenuServ = new Scanner(System.in);
             and end the program.
          */
         //todo: Print the answer using the MenuService's printAnswer() method
-//System.out.println(printAnswer);
+    inputMenuServ.printAnswer(newWeight, fromUnit, convertValue, toUnit);
 
 
     }
