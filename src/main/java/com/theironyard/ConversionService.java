@@ -1,5 +1,7 @@
 package com.theironyard;
 
+import java.util.ArrayList;
+
 /**
  * The ConversionService is responsible for converting values between units. It
  * also can provide a list of units it can convert between (in String form).
@@ -22,12 +24,12 @@ public class ConversionService {
      * returns an ArrayList of String objects. The List is a list of valid units
      * that we can convert between. All of the values should be returned in
      * lowercase.
-     *
+     * <p>
      * All enums have a method, values(), that returns an array of that enum's
      * values. For example, the Weight enum's values() method will return
      * Weight[]. You should iterate over this array to create your list of unit
      * Strings.
-     *
+     * <p>
      * You can convert an enum into a string using it's toString() method. For
      * example, Weight.METRIC_TON.toString() is "METRIC_TON". Take note that
      * all Strings in the returned list must be lowercase. Also, any underscore
@@ -37,39 +39,65 @@ public class ConversionService {
      * @return A ArrayList of lowercase Strings containing valid units. All underscores are replaced with spaces.
      */
     // todo: create listUnits() method
+    public static ArrayList<String> listUnits() {
 
+      //get arraylist make arraylist
+    ArrayList<String> units = new ArrayList<String>();
 
+        //iterate over values in weight enum -  for loop
 
-    /**
-     * Create a method named convert(). It accepts three arguments, the number
-     * being converted, the unit we're converting from, and the unit we're
-     * converting to. It returns the converted value.
-     *
-     * For example, if we are converting 210.5 pounds to stones our arguments
-     * would be:
-     *
-     * weight = 210.5
-     * from = Weight.POUND
-     * to = Weight.STONE
-     *
-     * The converted weight is 15.035714, so that is what would be returned.
-     *
-     * The process to convert is:
-     *
-     * 1) multiply the weight by its unit's value in grams. This tells you the
-     * weight in grams. EG: 210.5 lbs in grams is 210.5 * 453.59237 = 95,481.194
-     *
-     * 2) divide the weight in grams by the target unit's grams. EG: A Stone is
-     * 6,350.2932 grams. So, 95,481.194 grams (from pounds) / 6,350.2932 grams
-     * per stone = 15.035714 stone
-     *
-     * @param weight a decimal number that is being converted from one unit to another
-     * @param from a Weight value. EG: Weight.METRIC_TON. This is the unit we're converting from.
-     * @param to a Weight value. This is the unit we're converting to.
-     * @return the converted weight
-     */
-    // todo: create convert() method
+       // for (int x = 0 ; x < units.size() ; x++ ) {
+        for (Weight value : Weight.values()){
 
+           units.add(value.toString().toLowerCase().replaceAll("_", " "));
+ //          String valueAsString = value.toString();
+ //          String lowerCaseValue = valueAsString.toLowerCase();
+ //          String replacedAndLowerCase = lowerCaseValue.replaceAll("_"," ");
+ //          units.add(replacedAndLowerCase);
 
+        }
+        //for loop each value in enum convert value to string and store string in array list
 
-}
+        return units;
+    }
+
+        /**
+         * Create a method named convert(). It accepts three arguments, the number
+         * being converted, the unit we're converting from, and the unit we're
+         * converting to. It returns the converted value.
+         *
+         * For example, if we are converting 210.5 pounds to stones our arguments
+         * would be:
+         *
+         * weight = 210.5
+         * from = Weight.POUND
+         * to = Weight.STONE
+         *
+         * The converted weight is 15.035714, so that is what would be returned.
+         *
+         * The process to convert is:
+         *
+         * 1) multiply the weight by its unit's value in grams. This tells you the
+         * weight in grams. EG: 210.5 lbs in grams is 210.5 * 453.59237 = 95,481.194
+         *
+         * 2) divide the weight in grams by the target unit's grams. EG: A Stone is
+         * 6,350.2932 grams. So, 95,481.194 grams (from pounds) / 6,350.2932 grams
+         * per stone = 15.035714 stone
+         *
+         * @param weight a decimal number that is being converted from one unit to another
+         * @param from a Weight value. EG: Weight.METRIC_TON. This is the unit we're converting from.
+         * @param to a Weight value. This is the unit we're converting to.
+         * @return the converted weight
+         */
+        // todo: create convert() method
+        public static double convert(double weight, Weight from, Weight to){
+
+            weight = from.getGrams() *  weight;
+            weight = weight / to.getGrams();
+
+            return weight;
+        }
+
+    }
+
+//}

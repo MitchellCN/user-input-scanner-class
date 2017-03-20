@@ -1,5 +1,7 @@
 package com.theironyard;
 
+import java.util.Scanner;
+
 /**
  * As we move into writing more complex software we will begin to compose our
  * applications using many classes. Each class is dedicated to some purpose. The
@@ -58,18 +60,18 @@ public class Main {
 
         // todo: Create a new instance of the Scanner class. It should read from System.in.
 
-
+Scanner inputScanner = new Scanner(System.in);
         // todo: Configure the Scanner instance to use a newline (\n) character as its delimiter
 
-
+String name = inputScanner.nextLine();
 
         // todo: Create a new instance of the ConversionService
 
-
+Scanner inputConServ = new Scanner(System.in);
 
         // todo: Create a new instance of the MenuService. Pass the Scanner instance you created earlier into the MenuService's constructor
 
-
+Scanner inputMenuServ = new Scanner(System.in);
 
         /*
             Now that we have our objects configured, we can start to use them.
@@ -89,6 +91,10 @@ public class Main {
          */
         // todo: Invoke the MenuService's promptForWeight() method.
 
+        System.out.println( Double promptForWeight);
+
+
+
 
 
         /*
@@ -102,9 +108,11 @@ public class Main {
          */
         // todo: Invoke the MenuService's promptForFromUnit() method.
 
-
+        System.out.println(promptForFromUnit);
 
         // todo: Invoke the MenuService's promptForToUnit() method.
+
+        System.out.println(promptForToUnit);
 
 
 
@@ -118,6 +126,7 @@ public class Main {
          */
         // todo: Invoke the ConversionService's convert() method.
 
+        ConversionService.convert(weight, from, to);
 
 
         /*
@@ -127,7 +136,7 @@ public class Main {
             and end the program.
          */
         //todo: Print the answer using the MenuService's printAnswer() method
-
+System.out.println(printAnswer);
 
 
     }
